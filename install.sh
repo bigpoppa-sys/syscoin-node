@@ -1,4 +1,20 @@
 #!/bin/bash
+
+# syscoin conf file
+SYSCOIN_CONF=$(cat <<EOF
+# rpc config
+rpcuser=user
+rpcpassword=pass
+rpcallowip=127.0.0.1
+rpcbind=127.0.0.1
+rpcport=8369
+# syscoind config
+listen=1
+server=1
+daemon=1
+maxconnections=24
+EOF
+)
  
 # required for libdb4.8
 sudo apt install -y software-properties-common
@@ -29,3 +45,7 @@ cd syscoin
 ./configure
 make -j$(nproc) -pipe
 sudo make install
+
+# mkdir /.sycoin
+mkdir ~/.syscoin
+echo "$SYSCOIN_CONF" > ~/syscoin.conf
