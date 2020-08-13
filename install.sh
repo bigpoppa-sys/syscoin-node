@@ -18,7 +18,7 @@ EOF
  
 # required for libdb4.8
 sudo apt install -y software-properties-common
-sudo add-apt-repository ppa:bitcoin/bitcoin
+sudo add-apt-repository ppa:bitcoin/bitcoin -y
  
 # update
 sudo apt update -y
